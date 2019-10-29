@@ -16,6 +16,8 @@ RUN wget -O /tmp/superset.tar.gz https://github.com/apache/incubator-superset/ar
 
 # Build assets
 WORKDIR ${SUPERSET_HOME}/superset/assets
+COPY ./customize ${SUPERSET_HOME}/superset/assets/customize
+RUN ./customize/customize.sh
 RUN npm install && \
     npm run build
 
