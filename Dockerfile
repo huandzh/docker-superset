@@ -1,5 +1,5 @@
 ARG NODE_VERSION=latest
-ARG PYTHON_VERSION=latest
+ARG PYTHON_VERSION=3.6.9
 
 # --- Build assets with NodeJS
 
