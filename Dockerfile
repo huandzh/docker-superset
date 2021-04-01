@@ -6,12 +6,12 @@ ARG PYTHON_VERSION=3.6.9
 FROM node:${NODE_VERSION} AS build
 
 # Superset version to build
-ARG SUPERSET_VERSION=master
+ARG SUPERSET_VERSION=0.34.1
 ENV SUPERSET_HOME=/var/lib/superset/
 
 # Download source
 WORKDIR ${SUPERSET_HOME}
-RUN wget -O /tmp/superset.tar.gz https://github.com/apache/incubator-superset/archive/${SUPERSET_VERSION}.tar.gz && \
+RUN wget -O /tmp/superset.tar.gz https://github.com/apache/superset/archive/${SUPERSET_VERSION}.tar.gz && \
     tar xzf /tmp/superset.tar.gz -C ${SUPERSET_HOME} --strip-components=1
 
 # Build assets
