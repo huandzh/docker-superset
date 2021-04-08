@@ -13,13 +13,14 @@ ENV SUPERSET_HOME=/var/lib/superset/
 
 # Download source
 WORKDIR ${SUPERSET_HOME}
-COPY ./customize/* /tmp/customize
+
 RUN wget -qO /tmp/superset.tar.gz https://github.com/apache/superset/archive/${SUPERSET_VERSION}.tar.gz
 RUN tar xzf /tmp/superset.tar.gz -C ${SUPERSET_HOME} --strip-components=1
 
 # Build assets
 WORKDIR ${SUPERSET_HOME}/superset-frontend/
 
+COPY customize /tmp/customize/
 RUN /tmp/customize.sh
 RUN npm install
 RUN npm run build
