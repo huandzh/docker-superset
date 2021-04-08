@@ -21,7 +21,7 @@ RUN tar xzf /tmp/superset.tar.gz -C ${SUPERSET_HOME} --strip-components=1
 WORKDIR ${SUPERSET_HOME}/superset-frontend/
 
 COPY customize /tmp/customize/
-RUN /tmp/customize.sh
+RUN /tmp/customize/customize.sh
 RUN npm install
 RUN npm run build
 

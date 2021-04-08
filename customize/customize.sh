@@ -6,4 +6,4 @@ set -e
 
 cp /tmp/customize/MainPreset.js ./src/visualizations/presets/MainPreset.js
 cp /tmp/customize/package.json ./package.json
-cp /tmp/superset-logo-horiz.png ./images/superset-logo-horiz.png
+cp /tmp/customize/superset-logo-horiz.png ./images/superset-logo-horiz.png
