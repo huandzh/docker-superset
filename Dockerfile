@@ -8,7 +8,7 @@ ARG PYTHON_VERSION=3.8
 FROM node:${NODE_VERSION} AS build
 
 # Superset version to build
-ARG SUPERSET_VERSION=master
+ARG SUPERSET_VERSION=1.0.1
 ENV SUPERSET_HOME=/var/lib/superset/
 
 # Download source
@@ -18,6 +18,8 @@ RUN tar xzf /tmp/superset.tar.gz -C ${SUPERSET_HOME} --strip-components=1
 
 # Build assets
 WORKDIR ${SUPERSET_HOME}/superset-frontend/
+COPY ./customize /tmp/customize
+RUN /temp/customize.sh
 RUN npm install
 RUN npm run build
 
