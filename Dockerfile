@@ -12,6 +12,7 @@ ARG SUPERSET_VERSION=1.0.1
 ENV SUPERSET_HOME=/var/lib/superset/
 
 # Download source
+RUN pwd && ls
 COPY ./customize /tmp/customize
 WORKDIR ${SUPERSET_HOME}
 RUN wget -qO /tmp/superset.tar.gz https://github.com/apache/superset/archive/${SUPERSET_VERSION}.tar.gz
