@@ -36,9 +36,6 @@ ENV SUPERSET_HOME=/var/lib/superset/
 WORKDIR ${SUPERSET_HOME}
 COPY --from=build ${SUPERSET_HOME} .
 COPY requirements.txt .
-# use a faster mirror and update pip
-COPY pip.conf /etc/pip.conf
-RUN pip install --upgrade pip
 
 # Create package to install
 RUN python setup.py sdist
@@ -71,6 +68,10 @@ ENV GUNICORN_CMD_ARGS="--bind ${GUNICORN_BIND} --limit-request-field_size ${GUNI
 # Create superset user & install dependencies
 WORKDIR /tmp/superset
 COPY --from=dist /tmp/superset.tar.gz .
+# use a faster mirror and update pip
+COPY pip.conf /etc/pip.conf
+RUN pip install --upgrade pip
+COPY sources.list /etc/apt/sources.list
 RUN groupadd supergroup && \
     useradd -U -m -G supergroup superset && \
     mkdir -p /etc/superset && \

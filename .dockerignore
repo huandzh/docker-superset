@@ -3,3 +3,4 @@
 !bin/
 !requirements*.txt
 !pip.conf
+!sources.list
