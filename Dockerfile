@@ -36,5 +36,5 @@ USER root
 # remove assets
 RUN rm -rf /usr/local/lib/python3.8/site-packages/superset/static/assets/
 # copy built
-COPY --from=build ${SUPERSET_HOME}/superset/static/assets /usr/local/lib/python${PYTHON_VERSION}/site-packages/superset/static/
+COPY --from=build ${SUPERSET_HOME}/superset/static/assets /usr/local/lib/python3.8/site-packages/superset/static/assets
 USER superset
