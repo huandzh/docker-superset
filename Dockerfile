@@ -69,6 +69,7 @@ ENV GUNICORN_CMD_ARGS="--bind ${GUNICORN_BIND} --limit-request-field_size ${GUNI
 WORKDIR /tmp/superset
 COPY --from=dist /tmp/superset.tar.gz .
 # use a faster mirror and update pip
+COPY pip.conf /etc/pip.conf
 RUN pip install --upgrade pip
 COPY sources.list /etc/apt/sources.list
 RUN groupadd supergroup && \
