@@ -117,7 +117,7 @@ export default class MainPreset extends Preset {
         }),
         new AntdSelectFilterPlugin().configure({ key: 'filter_select' }),
         new AntdRangeFilterPlugin().configure({ key: 'filter_range' }),
-        new EchartsBasicRadarChartPlugin().configure({ key: 'radar' }),
+        new EchartsBasicRadarChartPlugin().configure({ key: 'echarts-basic-radar' }),
       ],
     });
   }
