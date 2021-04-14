@@ -39,4 +39,6 @@ RUN rm -rf /usr/local/lib/python3.8/site-packages/superset/static/assets/
 COPY --from=build ${SUPERSET_HOME}/superset/static/assets /usr/local/lib/python3.8/site-packages/superset/static/assets
 # overide translation
 COPY zh /usr/local/lib/python3.8/site-packages/superset/translations/zh
+# overide api
+COPY superset/charts/api.py /usr/local/lib/python3.8/site-packages/superset/charts/api.py
 USER superset
