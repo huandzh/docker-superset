@@ -473,7 +473,7 @@ class ChartRestApi(BaseSupersetModelRestApi):
         if result_format == ChartDataResultFormat.CSV:
             # return the first result
             # add bom if encoding is utf-8
-            if conf['CSV_EXPORT'].get('encoding', 'utf-8') == 'utf-8':
+            if conf['CSV_EXPORT'].get('encoding', 'utf-8-sig') in ('utf-8', 'utf-8-sig'):
                 data = codecs.BOM_UTF8.decode('utf-8') + result["queries"][0]["data"]
             else:
                 data = result["queries"][0]["data"]
