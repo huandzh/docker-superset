@@ -41,4 +41,5 @@ COPY --from=build ${SUPERSET_HOME}/superset/static/assets /usr/local/lib/python3
 COPY zh /usr/local/lib/python3.8/site-packages/superset/translations/zh
 # overide api
 COPY superset/charts/api.py /usr/local/lib/python3.8/site-packages/superset/charts/api.py
+COPY superset/views/core.py /usr/local/lib/python3.8/site-packages/superset/views/core.py
 USER superset
