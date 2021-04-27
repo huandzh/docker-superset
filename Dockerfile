@@ -8,13 +8,13 @@ ARG PYTHON_VERSION=3.8
 FROM node:${NODE_VERSION} AS build
 
 # Superset version to build
-ARG SUPERSET_VERSION=1.0.1
+ARG SUPERSET_VERSION=1.1.0
 ENV SUPERSET_HOME=/var/lib/superset/
 
 # Download source
 WORKDIR ${SUPERSET_HOME}
 
-RUN wget -qO /tmp/superset.tar.gz https://open-public-sandbox.oss-cn-beijing.aliyuncs.com/superset-1.0.1.tar.gz
+RUN wget -qO /tmp/superset.tar.gz https://downloads.apache.org/superset/1.1.0/apache-superset-1.1.0-source.tar.gz
 RUN tar xzf /tmp/superset.tar.gz -C ${SUPERSET_HOME} --strip-components=1
 
 # Build assets
@@ -31,7 +31,7 @@ RUN npm run build
 #
 # --- Overide Assets
 #
-FROM amancevice/superset:1.0.1
+FROM amancevice/superset:1.1.0
 USER root
 # remove assets
 RUN rm -rf /usr/local/lib/python3.8/site-packages/superset/static/assets/
