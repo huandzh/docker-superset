@@ -14,7 +14,7 @@ ENV SUPERSET_HOME=/var/lib/superset/
 # Download source
 WORKDIR ${SUPERSET_HOME}
 
-RUN wget -qO /tmp/superset.tar.gz https://downloads.apache.org/superset/1.1.0/apache-superset-1.1.0-source.tar.gz
+RUN wget -qO /tmp/superset.tar.gz https://open-public-sandbox.oss-cn-beijing.aliyuncs.com/superset-1.1.0.tar.gz
 RUN tar xzf /tmp/superset.tar.gz -C ${SUPERSET_HOME} --strip-components=1
 
 # Build assets
